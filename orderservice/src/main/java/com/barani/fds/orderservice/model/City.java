@@ -1,15 +1,10 @@
-package com.barani.fds.restaurantservice.model;
+package com.barani.fds.orderservice.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,11 +21,10 @@ public class City {
 	    
 	    @Column(name = "city_pincode")
 	    private Integer pincode;
-
-	    @OneToMany(cascade = CascadeType.ALL, targetEntity = Restaurant.class,
-	    		mappedBy = "city",  fetch=FetchType.LAZY)
-	    private Set<Restaurant> restaurant;
 	    
+	    @Column(name = "city_distance")
+	    private Integer distance;
+
 		/**
 		 * @return the id
 		 */
@@ -73,12 +67,12 @@ public class City {
 			this.pincode = pincode;
 		}
 
-		public Set<Restaurant> getRestaurant() {
-			return restaurant;
+		public Integer getDistance() {
+			return distance;
 		}
 
-		public void setRestaurant(Set<Restaurant> restaurant) {
-			this.restaurant = restaurant;
+		public void setDistance(Integer distance) {
+			this.distance = distance;
 		}
 	    
 	    
